@@ -100,7 +100,7 @@ public class SimpleOffer {
         pgnMap.put("AKWIZYCJA-12", "PVIDPTNRCAN");
         pgnMap.put("AKWIZYCJA-24", "PVIDPTNRCANUR");
         pgnMap.put("UTRZYMANIE-12", "PVIDPTNRCAN");
-        //pgnMap.put("UTRZYMANIE-24", "PVIDPTNRCANW");
+        //było pgnMap.put("UTRZYMANIE-24", "PVIDPTNRCANW");
         pgnMap.put("UTRZYMANIE-24", "PVIDPTNRCANUR");
     }
 
