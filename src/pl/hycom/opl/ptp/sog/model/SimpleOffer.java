@@ -92,8 +92,8 @@ public class SimpleOffer {
     
     static {
         pgnMap = new HashMap<String, String>();
-        pgnMap.put("PTRPLPXDSL", "TRPL_GENERIC_NO_PROMOTION,PTRPLPXDSL,PVIDPTPWTTB");
-        pgnMap.put("PTRPLPFTTH", "TRPL_FTTH_GENERIC_NO_PROMOTION,PTRPLPXFTTH,PVIDPTPWTTB");
+        pgnMap.put("PTRPLPXDSL", "TRPL_GENERIC_NO_PROMOTION,PTRPLPXDSL");
+        pgnMap.put("PTRPLPFTTH", "TRPL_FTTH_GENERIC_NO_PROMOTION,PTRPLPXFTTH");
         pgnMap.put("PNEOIPXDSL", "NEO_GENERIC_NO_PROMOTION,PNEOIPXDSL");
         pgnMap.put("PNEOIPFTTH", "NEO_FTTH_GENERIC_NO_PROMOTION,PNEOIPXFTTH");
         
@@ -147,7 +147,7 @@ public class SimpleOffer {
             tvPackage = tvPackageRaw.equalsIgnoreCase("n/d") ? "" : tvPackageRaw;
             String ncPlusPackagesRaw = parsedLine.get(12).replaceAll(" ", "").replaceAll(",,", ",");
             ncplusPackages = ncPlusPackagesRaw.equalsIgnoreCase("n/d") ? "" : ncPlusPackagesRaw;
-            promoGroupNames = handlePromoGroupNames(mainService, process, promotion, speed);
+            promoGroupNames = handlePromoGroupNames(mainService, process, promotion, speed, tvPackage);
             modems = null == speed ? "" : handleModems(speed);
             //channelsNumber = "".equals(tvPackage) ? "<view:value view:isNull=\"true\"></view:value>" : handleChannelsNumber(tvPackage); //parsedLine.get(15) == null || parsedLine.get(15).isEmpty() ? "<view:value view:isNull=\"true\"></view:value>" : parsedLine.get(15).trim();
             channelsNumber = "<view:value view:isNull=\"true\"></view:value>";
@@ -298,15 +298,16 @@ public class SimpleOffer {
      * @param process
      * @param technology
      * @param promotion
+     * @param tvPackage 
      * @return
      */
-    private String handlePromoGroupNames(MainService mainService, Process process, String promotion, String speed) {
+    private String handlePromoGroupNames(MainService mainService, Process process, String promotion, String speed, String tvPackage) {
         StringBuilder pgn = new StringBuilder();
         if ("TRPL005P".equals(speed)) {
             pgn.append("PTV_NO_PROMOTION");
-        } else if (mainService.equals(MainService.TRPL0010)) {
+        } else if (mainService.equals(MainService.TRPL0010) && tvPackage != null && tvPackage.contains("PVIDPTPPPT")) {
             appendComma(pgn);
-            pgn.append("PVIDPTPWTTB");            
+            pgn.append("PVIDPTPPPT");            
         }
         
         if (MainService.TRPL0010.equals(mainService)) {
