@@ -237,9 +237,13 @@ public class SimpleOffer {
                 if ("TRPL005X".equals(speed) || "TRPL005Y".equals(speed) || "TRPL005Z".equals(speed)) {
                     appendComma(additionals);            
                     additionals.append("NEOI3PINST-TRPL_FTTH_GENERIC_NO_PROMOTION");
-                    // TRPLINSTFTTH
-                    appendComma(additionals);            
-                    additionals.append("TRPLINSTFTTH").append('-').append(promotion);
+                    
+                    if (process == Process.AKWIZYCJA) {
+                        // TRPLINSTFTTH
+                        appendComma(additionals);            
+                        additionals.append("TRPLINSTFTTH").append('-').append(promotion);
+                    }
+                    
                     // DEVRTSTBICU100-PTV_GENERIC_NO_PROMOTION
                     appendComma(additionals);            
                     additionals.append("DEVRTSTBICU100-PTV_GENERIC_NO_PROMOTION");
