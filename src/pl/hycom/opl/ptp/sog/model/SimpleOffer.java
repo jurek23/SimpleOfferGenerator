@@ -86,6 +86,19 @@ public class SimpleOffer {
         modemsMap.put("NEOIAC13", "!DEVRTLBOXOFB30-NEO_FTTH_GENERIC_NO_PROMOTION");
         // 600M
         modemsMap.put("NEOIAC18", "!DEVRTLBOXOFB30-NEO_FTTH_GENERIC_NO_PROMOTION");
+
+        // 10M 3P
+        modemsMap.put("TRPL005P", "!DEVRTLBOXOFB20-TRPL_GENERIC_NO_PROMOTION");
+        // 20M 3P
+        modemsMap.put("TRPL005R", "!DEVRTLBOXOFB20-TRPL_GENERIC_NO_PROMOTION");
+        // 80M 3P
+        modemsMap.put("TRPL005W", "!DEVRTLBOXOFB20-TRPL_GENERIC_NO_PROMOTION");
+        // 100M 3P
+        modemsMap.put("TRPL005X", "!DEVRTLBOXOFB30-TRPL_FTTH_GENERIC_NO_PROMOTION");
+        // 300M 3P
+        modemsMap.put("TRPL005Y", "!DEVRTLBOXOFB30-TRPL_FTTH_GENERIC_NO_PROMOTION");
+        // 600M 3P
+        modemsMap.put("TRPL005Z", "!DEVRTLBOXOFB30-TRPL_FTTH_GENERIC_NO_PROMOTION");
     }
 
     public static Map<String, String> pgnMap;
